@@ -1,0 +1,21 @@
+cd Desktop
+mkdir SolanaWallet
+solana-keygen new --outfile SolanaWallet/my-keypair.json
+
+solana airdrop 1 YOUR_ADDRESS --url https://api.devnet.solana.com
+
+solana config set --url https://devnet.solana.com
+solana config set --keypair SolanaWallet/my-keypair.json
+
+spl-token create-token
+
+spl-token create-account YOUR_TOKEN
+
+spl-token mint YOUR_TOKEN 420
+
+spl-token create-token --decimals 0
+spl-token create-account YOUR_NFT_TOKEN
+spl-token mint YOUR_NFT_TOKEN 1
+spl-token authorize YOUR_NFT_TOKEN mint --disable
+
+*****
